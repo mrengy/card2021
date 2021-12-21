@@ -117,12 +117,19 @@ $( document ).ready(function() {
   const slides = $('.slide');
   let currentSlide = 0;
 
+  function setQuizHeight(){
+    divHeight = $('.active-slide').height();
+    $('#quiz').css({'height' : divHeight});
+  }
+
   function showSlide(n) {
     //reset classes
     slides[currentSlide].classList.remove('active-slide');
     $('button').removeClass('none');
     slides[n].classList.add('active-slide');
-    
+
+    setQuizHeight();
+
     currentSlide = n;
     if(currentSlide === 0){
       previousButton.addClass('none');
@@ -148,4 +155,5 @@ $( document ).ready(function() {
   previousButton.on('click', showPreviousSlide);
   nextButton.on('click', showNextSlide);
   submitButton.on('click', showResults);
+  $(window).resize(setQuizHeight);
 });

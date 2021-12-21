@@ -6,8 +6,12 @@
   color: #cc4b37;
 }
 
-.slide {
+#quiz {
   position: relative;
+}
+
+.slide {
+  position: absolute;
   left: 0px;
   top: 0px;
   width: 100%;
@@ -20,12 +24,6 @@
 .active-slide {
   opacity: 1;
   z-index: 2;
-}
-
-.quiz-container {
-  position: relative;
-  height: 200px;
-  margin-top: 3em;
 }
 
 .none {
