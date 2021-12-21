@@ -2,6 +2,7 @@
 
 $color_success: #3adb76;
 $color_wrong: #cc4b37;
+$color_background: #fff;
 
 .correct, .correct label {
   color: $color_success;
@@ -9,4 +10,26 @@ $color_wrong: #cc4b37;
 
 .incorrect, .incorrect label {
   color: $color_wrong;
+}
+
+.slide {
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  width: 100%;
+  z-index: 1;
+  opacity: 0;
+  background-color: $color_background;
+  transition: opacity .5s;
+}
+
+.active-slide {
+  opacity: 1;
+  z-index: 2;
+}
+
+.quiz-container {
+  position:relative;
+  height: 200px;
+  margin-top: 3em;
 }
