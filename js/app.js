@@ -39,7 +39,7 @@ $( document ).ready(function() {
           const answers =[];
 
           //for each available answers
-          for(letter in currentQuestion, answers){
+          for(letter in currentQuestion.answers){
 
             //add html radio button
             answers.push(
