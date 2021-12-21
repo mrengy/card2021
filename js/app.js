@@ -69,12 +69,13 @@ $( document ).ready(function() {
 
     function showResults(){
       // gather answers from our quiz
-      //const answerContainers = quizContainer.querySelectorAll('.answers');
-
       const answerContainers = $('.answers');
 
       //keep track of user's answers
       let numCorrect = 0;
+
+      //clear old classes
+      $('.correct, .incorrect').removeClass('correct incorrect');
 
       // for each question
       myQuestions.forEach( (currentQuestion, questionNumber) => {
@@ -82,9 +83,6 @@ $( document ).ready(function() {
         const answerContainer = answerContainers[questionNumber];
         const selector = `input[name=question${questionNumber}]:checked`;
         const userAnswer = (answerContainer.querySelector(selector) || {}).value;
-
-        //clear old classes
-        $('.correct, .incorrect').removeClass('correct incorrect');
 
         // if answer is correct
         if(userAnswer === currentQuestion.correctAnswer){
