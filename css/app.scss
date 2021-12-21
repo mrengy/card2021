@@ -3,10 +3,10 @@
 $color_success: #3adb76;
 $color_wrong: #cc4b37;
 
-.correct {
+.correct, .correct label {
   color: $color_success;
 }
 
-.incorrect {
+.incorrect, .incorrect label {
   color: $color_wrong;
 }
