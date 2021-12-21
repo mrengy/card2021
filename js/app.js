@@ -68,7 +68,41 @@ $( document ).ready(function() {
     }
 
     function showResults(){
+      // gather answers from our quiz
+      //const answerContainers = quizContainer.querySelectorAll('.answers');
 
+      const answerContainers = $('.answers');
+
+      //keep track of user's answers
+      let numCorrect = 0;
+
+      // for each question
+      myQuestions.forEach( (currentQuestion, questionNumber) => {
+        // find selected answer
+        const answerContainer = answerContainers[questionNumber];
+        const selector = `input[name=question${questionNumber}]:checked`;
+        const userAnswer = (answerContainer.querySelector(selector) || {}).value;
+
+        //clear old classes
+        $('.correct, .incorrect').removeClass('correct incorrect');
+
+        // if answer is correct
+        if(userAnswer === currentQuestion.correctAnswer){
+            // add to the number of correct answers
+            numCorrect++;
+
+            // color the answers green
+            $(answerContainers[questionNumber]).addClass('correct');
+        }
+        else{
+            //color the answers red
+            $(answerContainers[questionNumber]).addClass('incorrect');
+        }
+
+      });
+
+      //show number of correct answers out of total
+      resultsContainer.html(`${numCorrect} out of ${myQuestions.length}`);
     }
 
     //display quiz right away

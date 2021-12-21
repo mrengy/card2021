@@ -1,1 +1,12 @@
 // app css
+
+$color_success: #3adb76;
+$color_wrong: #cc4b37;
+
+.correct {
+  color: $color_success;
+}
+
+.incorrect {
+  color: $color_wrong;
+}

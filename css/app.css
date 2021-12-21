@@ -1,3 +1,9 @@
+.correct {
+  color: #3adb76;
+}
 
+.incorrect {
+  color: #cc4b37;
+}
 
 /*# sourceMappingURL=app.css.map */
