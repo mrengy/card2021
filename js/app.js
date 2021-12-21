@@ -62,6 +62,9 @@ $( document ).ready(function() {
           );
         }
       );
+
+      // combine our output list into one string of HTML and put it on the page
+      quizContainer.html(output.join(''));
     }
 
     function showResults(){
