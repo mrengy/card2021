@@ -13,7 +13,7 @@ $color_background: #fff;
 }
 
 .slide {
-  position: absolute;
+  position: relative;
   left: 0px;
   top: 0px;
   width: 100%;
@@ -32,4 +32,8 @@ $color_background: #fff;
   position:relative;
   height: 200px;
   margin-top: 3em;
+}
+
+.none{
+  display:none;
 }
