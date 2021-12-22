@@ -1,11 +1,3 @@
-.correct, .correct label {
-  color: #3adb76;
-}
-
-.incorrect, .incorrect label {
-  color: #cc4b37;
-}
-
 body {
   background-color: #666;
 }

@@ -4,15 +4,6 @@ $color_success: #3adb76;
 $color_wrong: #cc4b37;
 $color_background: #666;
 
-
-.correct, .correct label {
-  color: $color_success;
-}
-
-.incorrect, .incorrect label {
-  color: $color_wrong;
-}
-
 body{
   background-color: $color_background;
 }

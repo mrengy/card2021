@@ -88,19 +88,24 @@ $( document ).ready(function() {
       const answerContainer = answerContainers[questionNumber];
       const selector = `input[name=question${questionNumber}]:checked`;
       const userAnswer = (answerContainer.querySelector(selector) || {}).value;
+      // variable for whether user got answer correct
+      var currentQuestion.correctness = false ;
 
       // if answer is correct
       if(userAnswer === currentQuestion.correctAnswer){
           // add to the number of correct answers
           numCorrect++;
 
-          // color the answers green
+          // add correct class
           $(answerContainers[questionNumber]).addClass('correct');
+          currentQuestion.correctness = true;
       }
       else{
-          //color the answers red
+          // add incorrect class
           $(answerContainers[questionNumber]).addClass('incorrect');
+          currentQuestion.correctness = false;
       }
+      console.log(currentQuestion);
 
     });
 
