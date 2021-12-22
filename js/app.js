@@ -165,6 +165,7 @@ $( document ).ready(function() {
 
   function showNextSlide(){
     showSlide(currentSlide + 1);
+    $('#intro').addClass('fadeout');
   }
 
   function showPreviousSlide(){
