@@ -101,10 +101,37 @@ $( document ).ready(function() {
 
           // set object as correct
           currentQuestion['correctness'] = true;
+
+          // add question and answer to output
+          output.push(
+            `<div class="result-slide correct">
+              <div class="question">
+                ${currentQuestion.question}
+              </div>
+              <div class="user-answer">
+                Your answer: "${currentQuestion.answers[letter]}": <span class="indicator">Correct</span>
+              </div>
+            </div>`
+          )
       }
       else{
           // set object as incorrect
           currentQuestion['correctness'] = false;
+
+          // add question and answer to output
+          output.push(
+            `<div class="result-slide incorrect">
+              <div class="question">
+                ${currentQuestion.question}
+              </div>
+              <div class="user-answer">
+                Your answer: "${currentQuestion.answers[letter]}": <span class="indicator">Incorrect</span>
+              </div>
+              <div class="correct-answer">
+                Correct answer: "${currentQuestion.answers[currentQuestion.correctAnswer]}"
+              </div>
+            </div>`
+          )
       }
 
       // debug
@@ -128,7 +155,7 @@ $( document ).ready(function() {
     </div>`
     );
 
-    //add output to html
+    //display output to html
     resultsContainer.html(output.join(''));
   } // end of function
 
