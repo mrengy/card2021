@@ -117,8 +117,8 @@ $( document ).ready(function() {
       setQuizHeight();
 
       // hide all the buttons
-      previousButton.addClass('none');
-      submitButton.addClass('none');
+      previousButton.addClass('hide');
+      submitButton.addClass('hide');
 
     });
 
@@ -147,19 +147,19 @@ $( document ).ready(function() {
   function showSlide(n) {
     //reset classes
     slides[currentSlide].classList.remove('active-slide');
-    $('button').removeClass('none');
+    $('button').removeClass('hide');
     slides[n].classList.add('active-slide');
 
     setQuizHeight();
 
     currentSlide = n;
     if(currentSlide === 0){
-      previousButton.addClass('none');
+      previousButton.addClass('hide');
     }
     if(currentSlide === slides.length-1) {
-      nextButton.addClass('none');
+      nextButton.addClass('hide');
     } else {
-      submitButton.addClass('none');
+      submitButton.addClass('hide');
     }
   }
 
