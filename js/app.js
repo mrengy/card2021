@@ -17,7 +17,8 @@ $( document ).ready(function() {
         c: "Pick up and throw the dirt as far as you can",
         d: "Pull out plants"
       },
-      correctAnswer: "a"
+      correctAnswer: "a",
+      correctness: false
     },
     {
       question:"You see three pieces of crispy donut-shaped food in front of you, alongside a container of soup. How do you eat this meal?",
@@ -27,7 +28,8 @@ $( document ).ready(function() {
         c: "Take one bite out of each piece",
         d: "Dip the piece into the soup and then eat the whole piece"
       },
-      correctAnswer: "c"
+      correctAnswer: "c",
+      correctness: false
     }
   ]
 
@@ -88,8 +90,9 @@ $( document ).ready(function() {
       const answerContainer = answerContainers[questionNumber];
       const selector = `input[name=question${questionNumber}]:checked`;
       const userAnswer = (answerContainer.querySelector(selector) || {}).value;
-      // variable for whether user got answer correct
-      var currentQuestion.correctness = false ;
+
+      // resetting correctness attribute
+      currentQuestion['correctness'] = false;
 
       // if answer is correct
       if(userAnswer === currentQuestion.correctAnswer){
@@ -98,12 +101,12 @@ $( document ).ready(function() {
 
           // add correct class
           $(answerContainers[questionNumber]).addClass('correct');
-          currentQuestion.correctness = true;
+          currentQuestion['correctness'] = true;
       }
       else{
           // add incorrect class
           $(answerContainers[questionNumber]).addClass('incorrect');
-          currentQuestion.correctness = false;
+          currentQuestion['correctness'] = false;
       }
       console.log(currentQuestion);
 
