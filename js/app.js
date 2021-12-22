@@ -10,6 +10,10 @@ $( document ).ready(function() {
   const myQuestions =[
     {
       heading:"Dirt",
+      questionImage: "img/dirt-question.jpeg",
+      questionAlt: "Myron leaning on a raised garden bed",
+      answerImage:"img/dirt-answer.jpeg",
+      answerAlt: "Myron holding a worm",
       question:"You encounter a rectangular shaped container with wood sides and dirt in the middle. There are some plants growing from the dirt. What do you do first?",
       answers:{
         a: "Look for worms",
@@ -22,6 +26,10 @@ $( document ).ready(function() {
     },
     {
       heading:"Eating",
+      questionImage: "img/eating-question.jpeg",
+      questionAlt: "closeup of three pieces of vada",
+      answerImage:"img/eating-answer.jpeg",
+      answerAlt: "Myron holding a piece of vada, with another piece he bit out of on the plate",
       question:"You see three pieces of crispy donut-shaped food in front of you, alongside a container of soup. How do you eat this meal?",
       answers:{
         a: "One piece at a time, eating the whole piece before moving to the next one",
@@ -66,6 +74,9 @@ $( document ).ready(function() {
             <div class="form-error">
               That's not a choice. Please make a choice before continuing. These are your options.
             </div>
+            <div class="question-image">
+              <img src="${currentQuestion.questionImage}" alt="${currentQuestion.questionAlt}" />
+            </div>
             <div class="question">
               ${currentQuestion.question}
             </div>
@@ -87,7 +98,7 @@ $( document ).ready(function() {
     if(validationPassed == false){
       return false;
     }
-    
+
     // gather answers from our quiz
     const answerContainers = $('.answers');
 
@@ -127,6 +138,9 @@ $( document ).ready(function() {
               <div class="user-answer">
                 Your answer, "${currentQuestion.answers[letter]}": <span class="indicator">Correct</span>
               </div>
+              <div class="answer-image">
+                <img src="${currentQuestion.answerImage}" alt="${currentQuestion.answerAlt}"/>
+              </div>
             </div>`
           )
       }
@@ -148,6 +162,9 @@ $( document ).ready(function() {
               </div>
               <div class="correct-answer">
                 Correct answer: "${currentQuestion.answers[currentQuestion.correctAnswer]}"
+              </div>
+              <div class="answer-image">
+                <img src="${currentQuestion.answerImage}" alt="${currentQuestion.answerAlt}"/>
               </div>
             </div>`
           )
