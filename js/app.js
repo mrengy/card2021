@@ -81,6 +81,9 @@ $( document ).ready(function() {
     //keep track of user's answers
     let numCorrect = 0;
 
+    // build HTML of all questions and answers
+    const output = [];
+
     // for each question
     myQuestions.forEach( (currentQuestion, questionNumber) => {
       // find selected answer
@@ -107,29 +110,27 @@ $( document ).ready(function() {
       // debug
       console.log(currentQuestion);
 
-      // remove active slide class to hide the last question
-      $('.active-slide').removeClass('active-slide');
-      setQuizHeight();
-
-      // hide all the buttons
-      previousButton.addClass('hide');
-      submitButton.addClass('hide');
-
-      // build HTML of all questions and answers
-      const output = [];
+    }); // end of foreach
 
 
-          //show number of correct answers out of total
-          output.push(`${numCorrect} out of ${myQuestions.length}`);
+    // remove active slide class to hide the last question
+    $('.active-slide').removeClass('active-slide');
+    setQuizHeight();
 
-      //for each question
-      myQuestions.forEach((currentQuestion, questionNumber)=> {
+    // hide all the buttons
+    previousButton.addClass('hide');
+    submitButton.addClass('hide');
 
-        }
-      );
-      resultsContainer.html(output.join(''));
-    });
-  }
+    //show number of correct answers out of total
+    output.unshift(
+    `<div id="score">
+      ${numCorrect} out of ${myQuestions.length}
+    </div>`
+    );
+
+    //add output to html
+    resultsContainer.html(output.join(''));
+  } // end of function
 
   // display quiz right away
   buildQuiz();
