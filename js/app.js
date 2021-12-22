@@ -81,7 +81,7 @@ $( document ).ready(function() {
     //keep track of user's answers
     let numCorrect = 0;
 
-    //clear old classes
+    // clear old classes to reset
     $('.correct, .incorrect').removeClass('correct incorrect');
 
     // for each question
@@ -108,7 +108,13 @@ $( document ).ready(function() {
           $(answerContainers[questionNumber]).addClass('incorrect');
           currentQuestion['correctness'] = false;
       }
+
+      // debug
       console.log(currentQuestion);
+
+      // remove active slide class
+      $('.active-slide').removeClass('active-slide');
+      setQuizHeight();
 
     });
 
@@ -127,6 +133,10 @@ $( document ).ready(function() {
 
   function setQuizHeight(){
     divHeight = $('.active-slide').height();
+    // set to 0 if undefined (happens if .active-slide is not present, like at end)
+    if (typeof divHeight === 'undefined'){
+      divHeight = 0;
+    }
     $('#quiz').css({'height' : divHeight});
   }
 
