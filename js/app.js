@@ -112,9 +112,13 @@ $( document ).ready(function() {
       // debug
       console.log(currentQuestion);
 
-      // remove active slide class
+      // remove active slide class to hide the last question
       $('.active-slide').removeClass('active-slide');
       setQuizHeight();
+
+      // hide all the buttons
+      previousButton.addClass('none');
+      submitButton.addClass('none');
 
     });
 
