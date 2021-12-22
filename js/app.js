@@ -2,14 +2,13 @@ $(document).foundation();
 
 $( document ).ready(function() {
 
-  // sliding functions
-
   // initial variables
   const quizContainer = $('#quiz');
   const resultsContainer = $('#results');
   const submitButton = $('#submit');
   const myQuestions =[
     {
+      heading:"Dirt",
       question:"You encounter a rectangular shaped container with wood sides and dirt in the middle. There are some plants growing from the dirt. What do you do first?",
       answers:{
         a: "Look for worms",
@@ -21,6 +20,7 @@ $( document ).ready(function() {
       correctness: false
     },
     {
+      heading:"Eating",
       question:"You see three pieces of crispy donut-shaped food in front of you, alongside a container of soup. How do you eat this meal?",
       answers:{
         a: "One piece at a time, eating the whole piece before moving to the next one",
@@ -59,6 +59,9 @@ $( document ).ready(function() {
         //add this question and its answers to the output
         output.push(
           `<div class="slide cell">
+            <h2 class="heading">
+              ${currentQuestion.heading}
+            </h2>
             <div class="question">
               ${currentQuestion.question}
             </div>
@@ -105,11 +108,14 @@ $( document ).ready(function() {
           // add question and answer to output
           output.push(
             `<div class="result-slide correct">
+              <h2 class="heading">
+                ${currentQuestion.heading}
+              </h2>
               <div class="question">
                 ${currentQuestion.question}
               </div>
               <div class="user-answer">
-                Your answer: "${currentQuestion.answers[letter]}": <span class="indicator">Correct</span>
+                Your answer, "${currentQuestion.answers[letter]}": <span class="indicator">Correct</span>
               </div>
             </div>`
           )
@@ -121,11 +127,14 @@ $( document ).ready(function() {
           // add question and answer to output
           output.push(
             `<div class="result-slide incorrect">
+              <h2 class="heading">
+                ${currentQuestion.heading}
+              </h2>
               <div class="question">
                 ${currentQuestion.question}
               </div>
               <div class="user-answer">
-                Your answer: "${currentQuestion.answers[letter]}": <span class="indicator">Incorrect</span>
+                Your answer, "${currentQuestion.answers[letter]}": <span class="indicator">Incorrect</span>
               </div>
               <div class="correct-answer">
                 Correct answer: "${currentQuestion.answers[currentQuestion.correctAnswer]}"
@@ -148,10 +157,13 @@ $( document ).ready(function() {
     previousButton.addClass('hide');
     submitButton.addClass('hide');
 
+    //calculate percentage correct
+    const percentage = ((numCorrect / myQuestions.length)*100) + '%';
+
     //show number of correct answers out of total
     output.unshift(
     `<div id="score">
-      ${numCorrect} out of ${myQuestions.length}
+      You got ${percentage} correct. The important thing is that you tried. Let's review the answers.
     </div>`
     );
 
