@@ -3,6 +3,7 @@ $(document).foundation();
 $( document ).ready(function() {
 
   // initial variables
+  var validationPassed = true;
   const quizContainer = $('#quiz');
   const resultsContainer = $('#results');
   const submitButton = $('#submit');
@@ -62,6 +63,9 @@ $( document ).ready(function() {
             <h2 class="heading">
               ${currentQuestion.heading}
             </h2>
+            <div class="form-error">
+              That's not a choice. Please make a choice before continuing. These are your options.
+            </div>
             <div class="question">
               ${currentQuestion.question}
             </div>
@@ -78,6 +82,12 @@ $( document ).ready(function() {
   }
 
   function showResults(){
+    //go no further if we haven't passed validation
+    validation();
+    if(validationPassed == false){
+      return false;
+    }
+    
     // gather answers from our quiz
     const answerContainers = $('.answers');
 
@@ -208,7 +218,24 @@ $( document ).ready(function() {
     }
   }
 
+  function validation(){
+    if( $('.active-slide input:radio').is(':checked') == false ){
+      $('.active-slide .form-error').addClass('is-visible');
+      validationPassed = false;
+    } else{
+      $('.is-visible').removeClass('is-visible');
+      validationPassed = true;
+    }
+    setQuizHeight();
+  }
+
   function showNextSlide(){
+    //go no further if we haven't passed validation
+    validation();
+    if(validationPassed == false){
+      return false;
+    }
+
     showSlide(currentSlide + 1);
     $('#intro').addClass('fadeout');
   }
@@ -216,10 +243,12 @@ $( document ).ready(function() {
   function showPreviousSlide(){
     showSlide(currentSlide - 1);
   }
+
   // show first slide
   showSlide(currentSlide);
 
   // event listeners
+  $('.active-slide input:radio').change(validation);
   previousButton.on('click', showPreviousSlide);
   nextButton.on('click', showNextSlide);
   submitButton.on('click', showResults);
