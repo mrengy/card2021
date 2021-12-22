@@ -81,9 +81,6 @@ $( document ).ready(function() {
     //keep track of user's answers
     let numCorrect = 0;
 
-    // clear old classes to reset
-    $('.correct, .incorrect').removeClass('correct incorrect');
-
     // for each question
     myQuestions.forEach( (currentQuestion, questionNumber) => {
       // find selected answer
@@ -99,13 +96,11 @@ $( document ).ready(function() {
           // add to the number of correct answers
           numCorrect++;
 
-          // add correct class
-          $(answerContainers[questionNumber]).addClass('correct');
+          // set object as correct
           currentQuestion['correctness'] = true;
       }
       else{
-          // add incorrect class
-          $(answerContainers[questionNumber]).addClass('incorrect');
+          // set object as incorrect
           currentQuestion['correctness'] = false;
       }
 
@@ -120,10 +115,20 @@ $( document ).ready(function() {
       previousButton.addClass('hide');
       submitButton.addClass('hide');
 
-    });
+      // build HTML of all questions and answers
+      const output = [];
 
-    //show number of correct answers out of total
-    resultsContainer.html(`${numCorrect} out of ${myQuestions.length}`);
+
+          //show number of correct answers out of total
+          output.push(`${numCorrect} out of ${myQuestions.length}`);
+
+      //for each question
+      myQuestions.forEach((currentQuestion, questionNumber)=> {
+
+        }
+      );
+      resultsContainer.html(output.join(''));
+    });
   }
 
   // display quiz right away
