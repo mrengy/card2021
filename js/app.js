@@ -56,7 +56,7 @@ $( document ).ready(function() {
 
         //add this question and its answers to the output
         output.push(
-          `<div class="slide">
+          `<div class="slide cell">
             <div class="question">
               ${currentQuestion.question}
             </div>

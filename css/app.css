@@ -6,18 +6,21 @@
   color: #cc4b37;
 }
 
+body {
+  background-color: #666;
+}
+
 #quiz {
   position: relative;
 }
 
 .slide {
   position: absolute;
-  left: 0px;
   top: 0px;
   width: 100%;
   z-index: 1;
   opacity: 0;
-  background-color: #fff;
+  background-color: #666;
   transition: opacity 0.5s;
 }
 

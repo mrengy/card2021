@@ -2,7 +2,8 @@
 
 $color_success: #3adb76;
 $color_wrong: #cc4b37;
-$color_background: #fff;
+$color_background: #666;
+
 
 .correct, .correct label {
   color: $color_success;
@@ -12,6 +13,9 @@ $color_background: #fff;
   color: $color_wrong;
 }
 
+body{
+  background-color: $color_background;
+}
 
 #quiz {
   position: relative;
@@ -19,7 +23,6 @@ $color_background: #fff;
 
 .slide {
   position: absolute;
-  left: 0px;
   top: 0px;
   width: 100%;
   z-index: 1;
