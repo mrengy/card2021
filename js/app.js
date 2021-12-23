@@ -67,21 +67,23 @@ $( document ).ready(function() {
 
         //add this question and its answers to the output
         output.push(
-          `<div class="slide cell">
-            <h2 class="heading">
+          `<div class="slide grid-x grid-padding-x">
+            <h2 class="heading large-12 cell">
               ${currentQuestion.heading}
             </h2>
-            <div class="form-error">
-              That's not a choice. Please make a choice before continuing. These are your options.
-            </div>
-            <div class="question-image">
+            <div class="question-image large-8 medium-6 small-12 cell">
               <img src="${currentQuestion.questionImage}" alt="${currentQuestion.questionAlt}" />
             </div>
-            <div class="question">
-              ${currentQuestion.question}
-            </div>
-            <div class="answers">
-              ${answers.join('')}
+            <div class="question-business large-4 medium-6 small-12 cell">
+              <div class="form-error">
+                That's not a choice. Please make a choice before continuing. These are your options.
+              </div>
+              <div class="question">
+                ${currentQuestion.question}
+              </div>
+              <div class="answers">
+                ${answers.join('')}
+              </div>
             </div>
           </div>`
         );
