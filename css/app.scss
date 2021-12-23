@@ -1,6 +1,6 @@
 // app css
 
-$color_success: #3adb76;
+$color_success: #2b8a3f;
 $color_wrong: #cc4b37;
 //$color_background: #666;
 $color_background: #fefefe;
@@ -42,4 +42,48 @@ body{
 #buttons{
   margin-top: 1rem;
   z-index: 99;
+}
+
+.result-slide{
+  margin-top: 1rem;
+  margin-bottom: 2rem;
+}
+
+.answers, .user-answer, .correct-answer{
+  margin-top: 1rem;
+}
+
+.indicator{
+  font-style: italic;
+}
+
+.correct .indicator{
+  color: $color_success;
+}
+
+// gold star
+.correct .indicator::after{
+    content: " \2B50";
+    font-style: normal;
+}
+
+.incorrect .indicator{
+  color: $color_wrong
+}
+
+.question{
+  font-weight: 700;
+}
+
+input[type="radio"]{
+  margin-bottom: 0;
+  position: absolute;
+  top:.4rem;
+  left: -1.3rem;
+}
+
+label{
+  position: relative;
+  margin-left: 1.3rem;
+  margin-bottom: .5rem;
 }

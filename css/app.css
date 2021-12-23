@@ -1,3 +1,4 @@
+@charset "UTF-8";
 body {
   background-color: #fefefe;
 }
@@ -35,6 +36,49 @@ body {
 #buttons {
   margin-top: 1rem;
   z-index: 99;
+}
+
+.result-slide {
+  margin-top: 1rem;
+  margin-bottom: 2rem;
+}
+
+.answers, .user-answer, .correct-answer {
+  margin-top: 1rem;
+}
+
+.indicator {
+  font-style: italic;
+}
+
+.correct .indicator {
+  color: #2b8a3f;
+}
+
+.correct .indicator::after {
+  content: " ⭐";
+  font-style: normal;
+}
+
+.incorrect .indicator {
+  color: #cc4b37;
+}
+
+.question {
+  font-weight: 700;
+}
+
+input[type=radio] {
+  margin-bottom: 0;
+  position: absolute;
+  top: 0.4rem;
+  left: -1.3rem;
+}
+
+label {
+  position: relative;
+  margin-left: 1.3rem;
+  margin-bottom: 0.5rem;
 }
 
 /*# sourceMappingURL=app.css.map */

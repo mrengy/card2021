@@ -42,6 +42,16 @@ $( document ).ready(function() {
     }
   ]
 
+  function setQuizHeight(){
+    divHeight = $('.active-slide').height();
+    // set to 0 if undefined (happens if .active-slide is not present, like at end)
+    if (typeof divHeight === 'undefined'){
+      divHeight = 0;
+    }
+    $('#quiz').css({'height' : divHeight});
+  }
+
+
   // build quiz and show results functions
   function buildQuiz(){
     const output = [];
@@ -92,6 +102,9 @@ $( document ).ready(function() {
 
     // combine our output list into one string of HTML and put it on the page
     quizContainer.html(output.join(''));
+
+    // set quiz height initially
+    setQuizHeight();
   }
 
   function showResults(){
@@ -130,43 +143,54 @@ $( document ).ready(function() {
 
           // add question and answer to output
           output.push(
-            `<div class="result-slide correct">
-              <h2 class="heading">
-                ${currentQuestion.heading}
+            `<div class="result-slide grid-x grid-padding-x correct">
+              <h2 class="heading large-12 cell">
+                ${currentQuestion.heading}:
+                <span class="indicator">
+                  Correct
+                </span>
               </h2>
-              <div class="question">
-                ${currentQuestion.question}
-              </div>
-              <div class="user-answer">
-                Your answer, "${currentQuestion.answers[letter]}": <span class="indicator">Correct</span>
-              </div>
-              <div class="answer-image">
+              <div class="answer-image large-8 medium-6 small-12 cell">
                 <img src="${currentQuestion.answerImage}" alt="${currentQuestion.answerAlt}"/>
+              </div>
+              <div class="answer-business large-4 medium-6 small-12 cell">
+                <div class="question">
+                  ${currentQuestion.question}
+                </div>
+                <div class="user-answer">
+                  Your answer, "${currentQuestion.answers[letter]}": <span class="indicator">Correct</span>
+                </div>
               </div>
             </div>`
           )
       }
       else{
+          // if answer incorrect
           // set object as incorrect
           currentQuestion['correctness'] = false;
 
           // add question and answer to output
           output.push(
-            `<div class="result-slide incorrect">
-              <h2 class="heading">
-                ${currentQuestion.heading}
+            `<div class="result-slide grid-x grid-padding-x incorrect">
+              <h2 class="heading large-12 cell">
+                ${currentQuestion.heading}:
+                <span class="indicator">
+                  Incorrect
+                </span>
               </h2>
-              <div class="question">
-                ${currentQuestion.question}
-              </div>
-              <div class="user-answer">
-                Your answer, "${currentQuestion.answers[letter]}": <span class="indicator">Incorrect</span>
-              </div>
-              <div class="correct-answer">
-                Correct answer: "${currentQuestion.answers[currentQuestion.correctAnswer]}"
-              </div>
-              <div class="answer-image">
+              <div class="answer-image large-8 medium-6 small-12 cell">
                 <img src="${currentQuestion.answerImage}" alt="${currentQuestion.answerAlt}"/>
+              </div>
+              <div class="answer-business large-4 medium-6 small-12 cell">
+                <div class="question">
+                  ${currentQuestion.question}
+                </div>
+                <div class="user-answer">
+                  Your answer, "${currentQuestion.answers[letter]}": <span class="indicator">Incorrect</span>
+                </div>
+                <div class="correct-answer">
+                  Correct answer: "${currentQuestion.answers[currentQuestion.correctAnswer]}"
+                </div>
               </div>
             </div>`
           )
@@ -200,7 +224,7 @@ $( document ).ready(function() {
     resultsContainer.html(output.join(''));
   } // end of function
 
-  // display quiz right away
+  // first run on page load
   buildQuiz();
 
   // pagination
@@ -209,22 +233,11 @@ $( document ).ready(function() {
   const slides = $('.slide');
   let currentSlide = 0;
 
-  function setQuizHeight(){
-    divHeight = $('.active-slide').height();
-    // set to 0 if undefined (happens if .active-slide is not present, like at end)
-    if (typeof divHeight === 'undefined'){
-      divHeight = 0;
-    }
-    $('#quiz').css({'height' : divHeight});
-  }
-
   function showSlide(n) {
     //reset classes
     slides[currentSlide].classList.remove('active-slide');
     $('button').removeClass('hide');
     slides[n].classList.add('active-slide');
-
-    setQuizHeight();
 
     currentSlide = n;
     if(currentSlide === 0){
@@ -235,6 +248,9 @@ $( document ).ready(function() {
     } else {
       submitButton.addClass('hide');
     }
+
+    // set quiz height when active slide image is done loading
+    $('.active-slide img').on('load', setQuizHeight);
   }
 
   function validation(){
