@@ -25,6 +25,7 @@ body{
   opacity: 0;
   background-color: $color_background;
   transition: opacity .5s;
+  overflow: visible;
 }
 
 .active-slide {
@@ -36,4 +37,9 @@ body{
   opacity: 0;
   max-height: 0;
   transition: all .5s;
+}
+
+#buttons{
+  margin-top: 1rem;
+  z-index: 99;
 }
