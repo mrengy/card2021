@@ -9,10 +9,8 @@ $( document ).ready(function() {
   const submitButton = $('#submit');
   const myQuestions =[
     {
-      heading:"Dirt",
-      questionImage: "img/dirt-question.jpeg",
+      heading:"dirt",
       questionAlt: "Myron leaning on a raised garden bed",
-      answerImage:"img/dirt-answer.jpeg",
       answerAlt: "Myron holding a worm",
       question:"You encounter a rectangular shaped container with wood sides and dirt in the middle. There are some plants growing from the dirt. What do you do first?",
       answers:{
@@ -25,10 +23,8 @@ $( document ).ready(function() {
       correctness: false
     },
     {
-      heading:"Eating",
-      questionImage: "img/eating-question.jpeg",
+      heading:"eating",
       questionAlt: "closeup of three pieces of vada",
-      answerImage:"img/eating-answer.jpeg",
       answerAlt: "Myron holding a piece of vada, with another piece he bit out of on the plate",
       question:"You see three pieces of crispy donut-shaped food in front of you, alongside a container of soup. How do you eat this meal?",
       answers:{
@@ -42,6 +38,7 @@ $( document ).ready(function() {
     }
   ]
 
+  // sets height of parent element to correct layout since there is absolute positioning involved
   function setQuizHeight(){
     divHeight = $('.active-slide').height();
     // set to 0 if undefined (happens if .active-slide is not present, like at end)
@@ -49,6 +46,28 @@ $( document ).ready(function() {
       divHeight = 0;
     }
     $('#quiz').css({'height' : divHeight});
+  }
+
+  // avoiding some repetition when building html for respnsive images
+  function responsiveImage(imgname, alt){
+    return(`
+      <img
+         alt="${alt}"
+         src="img/${imgname}_m.jpg"
+         srcset="
+            img/${imgname}_s.jpg 600w,
+            img/${imgname}_m.jpg 1096w,
+            img/${imgname}_l.jpg 1284w,
+            img/${imgname}_xl.jpg 1540w,
+         "
+         sizes="
+         (min-width: 1136px) 1096px,
+         (min-width: 2048px) 1284px,
+         (min-width: 2430px) 1540px,
+         100vw
+         "
+      >
+    `);
   }
 
 
@@ -75,14 +94,17 @@ $( document ).ready(function() {
           );
         }
 
+        // get the image tag using this function
+        const imageTag = responsiveImage(currentQuestion.heading+"-question", currentQuestion.questionAlt);
+
         //add this question and its answers to the output
         output.push(
           `<div class="slide grid-x grid-padding-x">
-            <h2 class="heading large-12 cell">
+            <h2 class="heading large-12 cell question-title">
               ${currentQuestion.heading}
             </h2>
             <div class="question-image large-8 medium-6 small-12 cell">
-              <img src="${currentQuestion.questionImage}" alt="${currentQuestion.questionAlt}" />
+              ${imageTag}
             </div>
             <div class="question-business large-4 medium-6 small-12 cell">
               <div class="question">
@@ -133,6 +155,9 @@ $( document ).ready(function() {
       // resetting correctness attribute
       currentQuestion['correctness'] = false;
 
+      // get the image tag using this function
+      const imageTag = responsiveImage(currentQuestion.heading+"-answer", currentQuestion.questionAlt);
+
       // if answer is correct
       if(userAnswer === currentQuestion.correctAnswer){
           // add to the number of correct answers
@@ -144,14 +169,14 @@ $( document ).ready(function() {
           // add question and answer to output
           output.push(
             `<div class="result-slide grid-x grid-padding-x correct">
-              <h2 class="heading large-12 cell">
+              <h2 class="heading large-12 cell question-title">
                 ${currentQuestion.heading}:
                 <span class="indicator">
                   Correct
                 </span>
               </h2>
               <div class="answer-image large-8 medium-6 small-12 cell">
-                <img src="${currentQuestion.answerImage}" alt="${currentQuestion.answerAlt}"/>
+                ${imageTag}
               </div>
               <div class="answer-business large-4 medium-6 small-12 cell">
                 <div class="question">
@@ -179,7 +204,7 @@ $( document ).ready(function() {
                 </span>
               </h2>
               <div class="answer-image large-8 medium-6 small-12 cell">
-                <img src="${currentQuestion.answerImage}" alt="${currentQuestion.answerAlt}"/>
+                ${imageTag}
               </div>
               <div class="answer-business large-4 medium-6 small-12 cell">
                 <div class="question">
