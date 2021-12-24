@@ -136,6 +136,12 @@ $( document ).ready(function() {
       return false;
     }
 
+    //remove min height so we can make the quiz disappear
+    $('.minheight').removeClass('minheight');
+
+    //reset heading
+    $('#title').html('Results');
+
     // gather answers from our quiz
     const answerContainers = $('.answers');
 

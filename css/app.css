@@ -5,19 +5,17 @@ body {
 
 #quiz {
   position: relative;
+}
+#quiz .minheight {
   min-height: 335px;
 }
 
-.question-image {
+.question-image .minheight {
   min-height: 200px;
 }
 
 .question-title {
   text-transform: capitalize;
-}
-
-.question-image {
-  min-height: 200px;
 }
 
 .fullheight {
