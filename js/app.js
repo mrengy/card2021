@@ -85,11 +85,11 @@ $( document ).ready(function() {
               <img src="${currentQuestion.questionImage}" alt="${currentQuestion.questionAlt}" />
             </div>
             <div class="question-business large-4 medium-6 small-12 cell">
-              <div class="form-error">
-                That's not a choice. Please make a choice before continuing. These are your options.
-              </div>
               <div class="question">
                 ${currentQuestion.question}
+              </div>
+              <div class="form-error">
+                That's not a choice. Please make a choice before continuing. These are your options.
               </div>
               <div class="answers">
                 ${answers.join('')}
