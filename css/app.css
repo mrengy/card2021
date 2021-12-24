@@ -16,6 +16,10 @@ body {
   text-transform: capitalize;
 }
 
+.question-image {
+  min-height: 200px;
+}
+
 .fullheight {
   max-height: 500px;
 }

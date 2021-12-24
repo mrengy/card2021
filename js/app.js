@@ -221,9 +221,6 @@ $( document ).ready(function() {
           )
       }
 
-      // debug
-      console.log(currentQuestion);
-
     }); // end of foreach
 
 
