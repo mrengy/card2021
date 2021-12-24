@@ -203,7 +203,7 @@ $( document ).ready(function() {
           // add question and answer to output
           output.push(
             `<div class="result-slide grid-x grid-padding-x incorrect">
-              <h2 class="heading large-12 cell">
+              <h2 class="heading large-12 cell question-title">
                 ${currentQuestion.heading}:
                 <span class="indicator">
                   Incorrect
