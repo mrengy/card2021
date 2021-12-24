@@ -13,6 +13,10 @@ body{
   position: relative;
 }
 
+.question-title{
+  text-transform: capitalize;
+}
+
 .fullheight {
   max-height: 500px;
 }
