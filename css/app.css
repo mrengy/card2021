@@ -5,6 +5,7 @@ body {
 
 #quiz {
   position: relative;
+  min-height: 335px;
 }
 
 .question-image {
