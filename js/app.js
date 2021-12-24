@@ -222,6 +222,9 @@ $( document ).ready(function() {
 
     //display output to html
     resultsContainer.html(output.join(''));
+
+    //scroll to top
+    window.scrollTo(0, 0);
   } // end of function
 
   // first run on page load
