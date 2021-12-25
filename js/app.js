@@ -153,9 +153,6 @@ $( document ).ready(function() {
 
   // sets height of parent element to correct layout since there is absolute positioning involved
   function setQuizHeight(){
-    // may remove this
-    activeSlide = $('.active-slide');
-
     divHeight = $('.active-slide').height();
     // set to 0 if undefined (happens if .active-slide is not present, like at end)
     if (typeof divHeight === 'undefined'){
