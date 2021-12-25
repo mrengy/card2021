@@ -161,12 +161,6 @@ $( document ).ready(function() {
       divHeight = 0;
     }
     $('#quiz').css({'height' : divHeight});
-
-    /*
-    // debug
-    console.log('activeSlide = '+JSON.stringify(activeSlide, null, 4));
-    console.log('divHeight = '+divHeight);
-    */
   }
 
   // avoiding some repetition when building html for respnsive images
@@ -391,16 +385,6 @@ $( document ).ready(function() {
     $('button').removeClass('hide');
     $(slides[n]).addClass('active-slide');
 
-    /*
-    //causing done is not a function errors
-    $(slides[n]).addClass('active-slide').done(function(){
-      // set quiz height when active slide image is done loading
-      $('.active-slide img').on('load', setQuizHeight);
-
-      console.log('active slide class addition done');
-    });
-    */
-
     currentSlide = n;
     if(currentSlide === 0){
       previousButton.addClass('hide');
@@ -411,14 +395,9 @@ $( document ).ready(function() {
       submitButton.addClass('hide');
     }
 
-    // may move this
-    /*
-    const activeSlideImage = $('.active-slide img');
-    console.log('activeSlideImage in showSlide function = '+JSON.stringify(activeSlideImage, null, 4));
-    */
-
     // for subsequent slides, run immediately
     setQuizHeight();
+
     // for first slide, wait until image loaded and run again
     $('.active-slide img').on('load', setQuizHeight);
 
