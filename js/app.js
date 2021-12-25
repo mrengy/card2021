@@ -35,7 +35,7 @@ $( document ).ready(function() {
       },
       correctAnswer: "c",
       correctness: false
-    }/*,
+    },
     {
       heading: "diaper",
       questionAlt: "cloth diapers in a pile",
@@ -148,7 +148,6 @@ $( document ).ready(function() {
       correctAnswer: "d",
       correctness: false
     }
-    */
   ]
 
   // sets height of parent element to correct layout since there is absolute positioning involved
@@ -352,12 +351,22 @@ $( document ).ready(function() {
     submitButton.addClass('hide');
 
     //calculate percentage correct
+    var ratio = (numCorrect / myQuestions.length);
     const percentage = ((numCorrect / myQuestions.length)*100) + '%';
+    var resultsMessage = "Not bad.";
 
-    //show number of correct answers out of total
+    if (ratio <= .5){
+      resultsMessage = "The important thing is that you tried."
+    } else if (ratio >.5 && ratio <.8){
+      resultsMessage = "You did a good job."
+    } else{
+      resultsMessage = "That was amazing!"
+    }
+
+    //add message to top of results page
     output.unshift(
     `<div id="score">
-      You got ${percentage} correct. The important thing is that you tried. Let's review the answers.
+      You got ${percentage} correct. ${resultsMessage} Let's review the answers.
     </div>`
     );
 
