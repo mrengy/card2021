@@ -79,10 +79,6 @@ body {
   color: #cc4b37;
 }
 
-.question {
-  font-weight: 700;
-}
-
 input[type=radio] {
   margin-bottom: 0;
   position: absolute;
@@ -94,6 +90,10 @@ label {
   position: relative;
   margin-left: 1.3rem;
   margin-bottom: 0.5rem;
+}
+
+.answer-label {
+  font-weight: 700;
 }
 
 /*# sourceMappingURL=app.css.map */

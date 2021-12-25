@@ -9,10 +9,10 @@ $( document ).ready(function() {
   const submitButton = $('#submit');
   const myQuestions =[
     {
-      heading:"dirt",
+      heading: "dirt",
       questionAlt: "Myron leaning on a raised garden bed",
       answerAlt: "Myron holding a worm",
-      question:"You encounter a rectangular shaped container with wood sides and dirt in the middle. There are some plants growing from the dirt. What do you do first?",
+      question: "You encounter a rectangular shaped container with wood sides and dirt in the middle. There are some plants growing from the dirt. What do you do first?",
       answers:{
         a: "Look for worms",
         b: "Find a watering can and pretend to water the dirt",
@@ -23,10 +23,10 @@ $( document ).ready(function() {
       correctness: false
     },
     {
-      heading:"eating",
+      heading: "eating",
       questionAlt: "closeup of three pieces of vada",
       answerAlt: "Myron holding a piece of vada, with another piece he bit out of on the plate",
-      question:"You see three pieces of crispy donut-shaped food in front of you, alongside a container of soup. How do you eat this meal?",
+      question: "You see three pieces of crispy donut-shaped food in front of you, alongside a container of soup. How do you eat this meal?",
       answers:{
         a: "One piece at a time, eating the whole piece before moving to the next one",
         b: "One piece at a time, taking little bites in a circular formation around the perimiter",
@@ -34,6 +34,118 @@ $( document ).ready(function() {
         d: "Dip the piece into the soup and then eat the whole piece"
       },
       correctAnswer: "c",
+      correctness: false
+    },
+    {
+      heading: "diaper",
+      questionAlt: "cloth diapers in a pile",
+      answerAlt: "Myron emerging from below pillows on a bed",
+      question: "It's morning time. Your mama tells you that it's time to change your diaper and put on different clothes for the day. How do you respond?",
+      answers:{
+        a: "Run to a far away part of the house",
+        b: "Hide among furniture",
+        c: "Go upstairs to the diaper changing area",
+        d: "Play with toys and pretend not to hear it"
+      },
+      correctAnswer: "b",
+      correctness: false
+    },
+    {
+      heading: "cups",
+      questionAlt: "Myron at a dining table with two cups in frnot of him",
+      answerAlt: "Myron lifting up one cup on top of another and attempting to drink from the top one",
+      question: "There are two cups in front of you. You are thirsty. What do you do?",
+      answers:{
+        a: "Put one on top of the other. Hold the bottom one and try to drink from the top one",
+        b: "Drink from one of the straws",
+        c: "Take the top off one of the cups and try to drink it like a big boy",
+        d: "Turn one of the cups over and draw a picture with the liquid that drips out"
+      },
+      correctAnswer: "a",
+      correctness: false
+    },
+    {
+      heading: "table",
+      questionAlt: "Myron and Molly sitting on couch, with folding end table visible",
+      answerAlt: "Myron standing on upside down table, looking proud",
+      question: "There is a folding end table in front of the couch. What do you try to do with it?",
+      answers:{
+        a: "Stand on it and use it as a surfboard",
+        b: "Flip it over and use the legs as a ladder",
+        c: "Hide under it",
+        d: "Try to keep it upright and push it around the floor"
+      },
+      correctAnswer: "b",
+      correctness: false
+    },
+    {
+      heading: "pants",
+      questionAlt: "Myron sitting with no clothes on",
+      answerAlt: "Pants with one leg through the top and one leg through the bottom",
+      question: "Mamma tells you to put your pants on. Do you:",
+      answers:{
+        a: "Put both legs through the top of your pants",
+        b: "Put one leg through the top and one leg through the bottom ",
+        c: "Throw the pants on the floor and run away",
+        d: "Put the pants on your head"
+      },
+      correctAnswer: "b",
+      correctness: false
+    },
+    {
+      heading: "fish",
+      questionAlt: "Guppies swimming in a tank",
+      answerAlt: "Myron and daycare classmates looking into fish tank",
+      question: "There’s a large glass box with water and small fish swimming in it. How do you engage with it?",
+      answers:{
+        a: "Face the fish. Try to have a conversation with them by saying \“blub, blub\”.",
+        b: "Feed the fish Play-doh",
+        c: "Put your toy truck in the water so that the fish can play with it",
+        d: "Try to open the can of blood worms and dump the entire thing into the water"
+      },
+      correctAnswer: "a",
+      correctness: false
+    },
+    {
+      heading: "leaves",
+      questionAlt: "Myron in raincoat in front of leaves",
+      answerAlt: "Myron throwing leaves",
+      question: "Papa is gathering a bunch of leaves into a pile with a long stick that has little hooks on the end of it. What do you do first?",
+      answers:{
+        a: "Jump in the pile",
+        b: "Help gather the leaves, using a small brush",
+        c: "Pick up a handful of leaves and throw them at Papa",
+        d: "Help gather the leaves, using the long stick"
+      },
+      correctAnswer: "c",
+      correctness: false
+    },
+    {
+      heading: "cookies",
+      questionAlt: "Myron watching Mama cut shapes into cookie dough",
+      answerAlt: "Myron eating raw cookie dough",
+      question: "Mama is making cookies by cutting some dough into shapes. How do you participate?",
+      answers:{
+        a: "Take a piece of dough and eat it",
+        b: "Roll the dough into the shape of a snake and hiss",
+        c: "Help flatten the dough with a rolling pin",
+        d: "Add some Play doh so that you can have another color to work with"
+      },
+      correctAnswer: "a",
+      correctness: false
+    },
+    {
+      heading: "molly",
+      questionAlt: "Molly inside a grocery bag",
+      answerAlt: "Myron inside one bag, Molly inside another",
+      question: "Molly is playing inside a grocery bag. How do you try to play with her?",
+      answers:{
+        a: "Put your hand in the bag",
+        b: "Pick up the bag and carry it upright",
+        c: "Pick up the bag and turn it over",
+        d: "Get inside another bag next to her"
+      },
+      correctAnswer: "d",
       correctness: false
     }
   ]
@@ -189,7 +301,7 @@ $( document ).ready(function() {
                   ${currentQuestion.question}
                 </div>
                 <div class="user-answer">
-                  Your answer, "${currentQuestion.answers[letter]}": <span class="indicator">Correct</span>
+                  <span class="answer-label">Your answer</span>, "${currentQuestion.answers[letter]}": <span class="indicator">Correct</span>
                 </div>
               </div>
             </div>`
@@ -217,10 +329,10 @@ $( document ).ready(function() {
                   ${currentQuestion.question}
                 </div>
                 <div class="user-answer">
-                  Your answer, "${currentQuestion.answers[letter]}": <span class="indicator">Incorrect</span>
+                  <span class="answer-label">Your answer</span>, "${currentQuestion.answers[letter]}": <span class="indicator">Incorrect</span>
                 </div>
                 <div class="correct-answer">
-                  Correct answer: "${currentQuestion.answers[currentQuestion.correctAnswer]}"
+                  <span class="answer-label">Correct answer:</span> "${currentQuestion.answers[currentQuestion.correctAnswer]}"
                 </div>
               </div>
             </div>`

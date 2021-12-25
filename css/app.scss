@@ -89,7 +89,7 @@ body{
 }
 
 .question{
-  font-weight: 700;
+  
 }
 
 input[type="radio"]{
@@ -103,4 +103,8 @@ label{
   position: relative;
   margin-left: 1.3rem;
   margin-bottom: .5rem;
+}
+
+.answer-label{
+  font-weight: 700;
 }
