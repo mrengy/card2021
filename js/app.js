@@ -302,7 +302,7 @@ $( document ).ready(function() {
                   ${currentQuestion.question}
                 </div>
                 <div class="user-answer">
-                  <span class="answer-label">Your answer</span>, "${currentQuestion.answers[letter]}": <span class="indicator">Correct</span>
+                  <span class="answer-label">Your answer</span>, "${currentQuestion.answers[userAnswer]}": <span class="indicator">Correct</span>
                 </div>
               </div>
             </div>`
@@ -330,7 +330,7 @@ $( document ).ready(function() {
                   ${currentQuestion.question}
                 </div>
                 <div class="user-answer">
-                  <span class="answer-label">Your answer</span>, "${currentQuestion.answers[letter]}": <span class="indicator">Incorrect</span>
+                  <span class="answer-label">Your answer</span>, "${currentQuestion.answers[userAnswer]}": <span class="indicator">Incorrect</span>
                 </div>
                 <div class="correct-answer">
                   <span class="answer-label">Correct answer:</span> "${currentQuestion.answers[currentQuestion.correctAnswer]}"
