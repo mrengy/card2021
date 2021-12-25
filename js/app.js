@@ -56,7 +56,7 @@ $( document ).ready(function() {
       answerAlt: "Myron lifting up one cup on top of another and attempting to drink from the top one",
       question: "There are two cups in front of you. You are thirsty. What do you do?",
       answers:{
-        a: "Put one on top of the other. Hold the bottom one and try to drink from the top one",
+        a: "Put one on top of the other. Hold the bottom one and try to drink from the top one.",
         b: "Drink from one of the straws",
         c: "Take the top off one of the cups and try to drink it like a big boy",
         d: "Turn one of the cups over and draw a picture with the liquid that drips out"
@@ -378,9 +378,20 @@ $( document ).ready(function() {
 
   function showSlide(n) {
     //reset classes
-    slides[currentSlide].classList.remove('active-slide');
+    $(slides[currentSlide]).removeClass('active-slide');
     $('button').removeClass('hide');
-    slides[n].classList.add('active-slide');
+    //slides[n].classList.add('active-slide');
+
+    function add_class_set_height(n){
+      $(slides[n]).addClass('active-slide').done(function(){
+        // set quiz height when active slide image is done loading
+        $('.active-slide img').on('load', setQuizHeight);
+
+        console.log('active slide class addition done');
+      });
+    }
+
+    add_class_set_height(n);
 
     currentSlide = n;
     if(currentSlide === 0){
@@ -392,8 +403,6 @@ $( document ).ready(function() {
       submitButton.addClass('hide');
     }
 
-    // set quiz height when active slide image is done loading
-    $('.active-slide img').on('load', setQuizHeight);
   }
 
   function validation(){
