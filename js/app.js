@@ -382,16 +382,12 @@ $( document ).ready(function() {
     $('button').removeClass('hide');
     //slides[n].classList.add('active-slide');
 
-    function add_class_set_height(n){
-      $(slides[n]).addClass('active-slide').done(function(){
-        // set quiz height when active slide image is done loading
-        $('.active-slide img').on('load', setQuizHeight);
+    $(slides[n]).addClass('active-slide').done(function(){
+      // set quiz height when active slide image is done loading
+      $('.active-slide img').on('load', setQuizHeight);
 
-        console.log('active slide class addition done');
-      });
-    }
-
-    add_class_set_height(n);
+      console.log('active slide class addition done');
+    });
 
     currentSlide = n;
     if(currentSlide === 0){
