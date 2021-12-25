@@ -129,7 +129,7 @@ $( document ).ready(function() {
         a: "Take a piece of dough and eat it",
         b: "Roll the dough into the shape of a snake and hiss",
         c: "Help flatten the dough with a rolling pin",
-        d: "Add some Play doh so that you can have another color to work with"
+        d: "Add some Play-Doh so that you can have another color to work with"
       },
       correctAnswer: "a",
       correctness: false
@@ -358,6 +358,9 @@ $( document ).ready(function() {
     previousButton.addClass('hide');
     submitButton.addClass('hide');
 
+    // hide the quizParent
+    $('#quizParent').addClass('hide');
+
     //calculate percentage correct
     var ratio = (numCorrect / myQuestions.length);
     const percentage = ((numCorrect / myQuestions.length)*100) + '%';
@@ -380,7 +383,6 @@ $( document ).ready(function() {
 
     //display output to html
     resultsContainer.html(output.join(''));
-
     $('#results-parent').removeClass('hide');
 
     //scroll to top
