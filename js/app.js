@@ -85,7 +85,7 @@ $( document ).ready(function() {
       question: "Mamma tells you to put your pants on. Do you:",
       answers:{
         a: "Put both legs through the top of your pants",
-        b: "Put one leg through the top and one leg through the bottom ",
+        b: "Put one leg through the top and one leg through the bottom",
         c: "Throw the pants on the floor and run away",
         d: "Put the pants on your head"
       },
@@ -99,7 +99,7 @@ $( document ).ready(function() {
       question: "There’s a large glass box with water and small fish swimming in it. How do you engage with it?",
       answers:{
         a: "Face the fish. Try to have a conversation with them by saying \“blub, blub\”.",
-        b: "Feed the fish Play-doh",
+        b: "Feed the fish Play-Doh",
         c: "Put your toy truck in the water so that the fish can play with it",
         d: "Try to open the can of blood worms and dump the entire thing into the water"
       },
@@ -187,8 +187,13 @@ $( document ).ready(function() {
   function buildQuiz(){
     const output = [];
 
+    const questionsLength = myQuestions.length;
+
     //for each question
     myQuestions.forEach((currentQuestion, questionNumber)=> {
+
+        //human centered question number
+        const thisQuestionNumber = questionNumber+1;
 
         //variable to store possible answers
         const answers =[];
@@ -199,7 +204,7 @@ $( document ).ready(function() {
           //add html radio button
           answers.push(
             `<label>
-              <input type="radio" name="question${questionNumber}" value="${letter}">
+              <input type="radio" name="question${questionNumber}" value="${letter}" disabled>
               ${letter} :
               ${currentQuestion.answers[letter]}
             </label>`
@@ -212,6 +217,9 @@ $( document ).ready(function() {
         //add this question and its answers to the output
         output.push(
           `<div class="slide grid-x grid-padding-x">
+            <div class="large-12 cell subheader" id="progress">
+              #${thisQuestionNumber} out of ${questionsLength}
+            </div>
             <h2 class="heading large-12 cell question-title">
               ${currentQuestion.heading}
             </h2>
@@ -373,6 +381,8 @@ $( document ).ready(function() {
     //display output to html
     resultsContainer.html(output.join(''));
 
+    $('#results-parent').removeClass('hide');
+
     //scroll to top
     window.scrollTo(0, 0);
   } // end of function
@@ -408,6 +418,11 @@ $( document ).ready(function() {
     // for first slide, wait until image loaded and run again
     $('.active-slide img').on('load', setQuizHeight);
 
+    // enable fields on active slide
+    $('.active-slide input').prop('disabled', false);
+
+    //set focus
+    $('.active-slide input').first().focus();
 
   }
 

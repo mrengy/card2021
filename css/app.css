@@ -96,4 +96,12 @@ label {
   font-weight: 700;
 }
 
+#progress {
+  margin-bottom: 0;
+}
+
+#signature {
+  font-style: italic;
+}
+
 /*# sourceMappingURL=app.css.map */
