@@ -7,7 +7,7 @@ $( document ).ready(function() {
   const quizContainer = $('#quiz');
   const resultsContainer = $('#results');
   const submitButton = $('#submit');
-  const myQuestions =[
+  const myQuestions = [
     {
       heading: "dirt",
       questionAlt: "Myron leaning on a raised garden bed",
@@ -35,7 +35,7 @@ $( document ).ready(function() {
       },
       correctAnswer: "c",
       correctness: false
-    },
+    }/*,
     {
       heading: "diaper",
       questionAlt: "cloth diapers in a pile",
@@ -148,6 +148,7 @@ $( document ).ready(function() {
       correctAnswer: "d",
       correctness: false
     }
+    */
   ]
 
   // sets height of parent element to correct layout since there is absolute positioning involved
